@@ -1,41 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
     <title>도서목록</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-          crossorigin="anonymous">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
     <div class="container py-4">
-        <header class="pb-3  mb-4 border-bottom">
-            <a href="/Welcome.html" class="d-flex align-items-center text-body-emphasis text-decoration-none">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                     class="bi bi-book-half me-2" viewBox="0 0 16 16">
-                    <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
-                </svg>
-                <span class="fs-4">BookMarket</span>
+      <header class="pb-3 mb-4 border-bottom">
+        <div class="container d-flex flex-wrap justifiy-content-center">
+          <a
+            th:href="@{/home}"
+            class="d-flex align-items-center text-body-emphasis text-decoration-none mb-3 mb-lg-0 me-lg-auto"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-book-half me-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"
+              />
+            </svg>
+            <span class="fs-4">BookMarket</span>
+          </a>
+          <a th:href="@{/books/category/{cat}(cat='IT')}" class="nav-link"
+            >IT전문서</a
+          >
+          &nbsp;|&nbsp;
+          <a th:href="@{/books/category/{cat}(cat='COOK')}" class="nav-link"
+            >요리전문서</a
+          >
+        </div>
+      </header>
+
+      <!-- 비어있을 때 메시지 -->
+      <div
+        th:if="${#lists.isEmpty(bookList)}"
+        class="alert alert-info"
+        role="alert"
+      >
+        <strong
+          th:text="${category != null ? '카테고리: ' + category : '선택된 카테고리'}"
+        ></strong>
+        <span> — 서적을 추가할 예정입니다.</span>
+      </div>
+
+      <!-- 도서 목록 (비어있지 않을 때) -->
+      <div
+        class="p-5 mb-4 bg-body-tertiary rounded-3"
+        th:unless="${#lists.isEmpty(bookList)}"
+      >
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">도서목록</h1>
+          <p class="col-md-8 fs-4">BookMarket</p>
+        </div>
+      </div>
+      <div class="row align-items-md-stretch text-center">
+        <div class="col-md-4" th:each="book: ${bookList}">
+          <h3 th:text="${book.name}"></h3>
+          <p th:text="${book.author}"></p>
+          <p th:text="${book.publisher + ' | ' + book.releaseDate}"></p>
+          <p style="text-align: left" th:text="${book.description}"></p>
+          <p
+            th:text="${book.unitPrice != null ? book.unitPrice + '원' : '가격 없음'}"
+          ></p>
+          <p>
+            <a
+              th:href="@{/books/{id}(id=${book.bookId})}"
+              class="btn btn-Secondary"
+              role="button"
+            >
+              상세정보 &raquo;
             </a>
-        </header>
-        <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-            <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">도서목록</h1>
-                <p class="col-md-8 fs-4">BookMarket</p>
-            </div>
+          </p>
         </div>
-        <div class="row align-items-md-stretch text-conter">
-            <div class="col-md-4" th:each="book:${bookList}">
-                <h3 th:text = "${book.name}"></h3>
-                <p th:text = "${book.auther}">
-                <p th:text = "${book.publisher} + '|' + ${book.releaseDate}" >
-                <p align="left" th:text = "${book.description}">
-                <p th:text = "${book.unitPrice}">원
-            </div>
-        </div>
-        <footer class="pt-3 mt-4 text-body-secondary border-top">
-            <span class="text-body-secondary">&copy; BookMarket</span>
-        </footer>
+      </div>
+      <footer class="pt-3 mt-4 text-body-secondary border-top">
+        <span class="text-body-secondary">&copy; BookMarket</span>
+      </footer>
     </div>
-</body>
+  </body>
 </html>
