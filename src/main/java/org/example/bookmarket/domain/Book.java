@@ -38,6 +38,9 @@ public class Book {
   @Column(name = "`condition`")
   private String condition;//신규도서 or 중고도서 or 전자책
 
+  private String fileName;//도서 이미지 파일
+
+
   public Book() {
     super();
   }
