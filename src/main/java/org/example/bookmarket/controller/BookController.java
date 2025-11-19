@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+import org.springframework.context.MessageSource;
+import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.Locale;
 import org.example.bookmarket.domain.Book;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -53,6 +56,9 @@ public class BookController {
   @Value("${file.uploadDir}")
   String fileDir;
 
+  @Autowired
+  private MessageSource messageSource;
+
   @GetMapping("/add")
   public String requestAddBookForm(Model model){
     model.addAttribute("book", new Book());
@@ -74,6 +80,15 @@ public class BookController {
     book.setFileName(saveName);
     bookService.setNewBook(book);
     return "redirect:/books";//웹 요청 url을 /books 로 강제 이동시켜 @RequestMapping(value = "/books")에 매핑 시킴
+  }
+
+  @GetMapping("/_debug/message")
+  @ResponseBody
+  public String debugMessage(Locale locale) {
+    // Use the overload with a default message to avoid NoSuchMessageException
+    String code = "addBook.form.title.label";
+    String val = messageSource.getMessage(code, null, "[MISSING]", locale);
+    return "locale=" + locale + " => " + val;
   }
 
   @GetMapping("/download")
