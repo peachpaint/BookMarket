@@ -9,7 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
 //implements WebMvcConfigurer : Spring MVC 설정을 커스터마이징할 수 있게 해주는 인터페이스
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-    registry.addResourceHandler("/images/**")
+    registry.addResourceHandler("/uploads/**")
         .addResourceLocations("file:C:/dev/BookMarket/uploads/");
-  }
+  }//upload폴더에 저장된 파일 이미지 사용
 }

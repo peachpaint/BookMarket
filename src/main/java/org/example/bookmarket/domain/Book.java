@@ -1,10 +1,8 @@
 package org.example.bookmarket.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 //BigDecimal : 부동 소수점 연산의 정확도 문제를 해결하기 위해 사용되는 클래스
@@ -39,7 +37,8 @@ public class Book {
   private String condition;//신규도서 or 중고도서 or 전자책
 
   private String fileName;//도서 이미지 파일
-
+  @Transient  // JPA가 이 필드를 DB에 매핑하지 않음
+  private MultipartFile bookimage;//도서 이미지
 
   public Book() {
     super();
