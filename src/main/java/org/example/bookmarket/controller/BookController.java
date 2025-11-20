@@ -1,12 +1,20 @@
 package org.example.bookmarket.controller;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.example.bookmarket.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.example.bookmarket.domain.Book;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
 @Controller
@@ -42,6 +50,9 @@ public class BookController {
     return "books";
   }
 
+  @Value("${file.uploadDir}")
+  String fileDir;
+
   @GetMapping("/add")
   public String requestAddBookForm(Model model){
     model.addAttribute("book", new Book());
@@ -50,8 +61,33 @@ public class BookController {
 
   @PostMapping("/add")
   public String submitAddBookForm(@ModelAttribute Book book){
+    MultipartFile bookImage = book.getBookimage();
+    String saveName = bookImage.getOriginalFilename();
+    File saveFile = new File(fileDir,saveName);
+    if(bookImage!=null && !bookImage.isEmpty()){
+      try{
+        bookImage.transferTo(saveFile);
+      }catch(Exception e){
+        throw new RuntimeException("도서 이미지 업로드가 실패하였습니다",e);
+      }
+    }
+    book.setFileName(saveName);
     bookService.setNewBook(book);
     return "redirect:/books";//웹 요청 url을 /books 로 강제 이동시켜 @RequestMapping(value = "/books")에 매핑 시킴
+  }
+
+  @GetMapping("/download")
+  public void downloadBookImage(@RequestParam("file") String paramKey,
+                                HttpServletResponse response) throws IOException {
+    File imageFile = new File(fileDir,paramKey);
+    response.setContentType("application/download");//setContentType : 다운로드를 위한 타입 설정
+    response.setContentLength((int) imageFile.length());//setContentLength : 다운로드 파일 크기 설정
+    response.setHeader("Content-Disposition", "attachment; filename=\"" + paramKey + "\"");
+    OutputStream os = response.getOutputStream();//setContentLength : 서버로 부터 파일 다운
+    FileInputStream fis = new FileInputStream(imageFile);//FileInputStream() : 파일 입력 객체를 생성
+    FileCopyUtils.copy(fis, os);
+    fis.close();
+    os.close();
   }
 
   @ModelAttribute

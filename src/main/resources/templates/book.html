@@ -39,42 +39,55 @@
           <p class="col-md-8 fs-4">BookMarket</p>
         </div>
       </div>
-
+      <div class="col-md-4">
+        <img
+          th:if="${book.fileName}"
+          th:src="@{/uploads/{fileName}(fileName=${book.fileName})}"
+          alt="도서이미지"
+          style="width: 100%; max-width: 300px; height: auto"
+        />
+          <div class="text-center">
+              <a th:href="@{download(file=${book.fileName})}" style="text-decoration-line : none">
+                  이미지다운로드
+              </a>
+          </div>
+      </div>
       <div class="row align-items-md-stretch">
         <div class="col-md-12">
-          <h3 th:text ="${book.name}"></h3>
-          <p th:text ="${book.description}"></p>
-          <br>
-            <P>
-                <b>도서코드 : </b>
-                <span class="badge text-bg-info" th:text="${book.bookId}"></span>
-            </P>
-            <P>
-                <b>저자 : </b>
-                <span th:text = "${book.author}"></span>
-            </P>
-            <P>
-                <b>출판사 : </b>
-                <span th:text = "${book.publisher}"></span>
-            </P>
-            <P>
-                <b>출판일 : </b>
-                <span th:text = "${book.releaseDate}"></span>
-            </P>
-            <P>
-                <b>분류 : </b>
-                <span th:text = "${book.category}"></span>
-            </P>
-            <P>
-                <b>재고수 : </b>
-                <span th:text = "${book.unitsInStock}"></span>
-            </P>
-            <h4 th:text ="${book.unitPrice}+'원'"></h4>
-            <br>
-            <P>
-                <a href="#" class="btn btn-primary">도서주문 &raquo;</a>
-                <!-- &raquo; = 오른쪽 이중 꺾쇠( » ) 문자 -->
-            </P>
+          <h3 th:text="${book.name}"></h3>
+          <p th:text="${book.description}"></p>
+          <br />
+          <p>
+            <b>도서코드 : </b>
+            <span class="badge text-bg-info" th:text="${book.bookId}"></span>
+          </p>
+          <p>
+            <b>저자 : </b>
+            <span th:text="${book.author}"></span>
+          </p>
+          <p>
+            <b>출판사 : </b>
+            <span th:text="${book.publisher}"></span>
+          </p>
+          <p>
+            <b>출판일 : </b>
+            <span th:text="${book.releaseDate}"></span>
+          </p>
+          <p>
+            <b>분류 : </b>
+            <span th:text="${book.category}"></span>
+          </p>
+          <p>
+            <b>재고수 : </b>
+            <span th:text="${book.unitsInStock}"></span>
+          </p>
+            <h4 th:text="${#numbers.formatDecimal(book.unitPrice, 0, 'NONE', 0, 'NONE')} + '원'"></h4>
+          <br/>
+          <p>
+            <a href="#" class="btn btn-primary">도서주문 &raquo;</a>
+            <!-- &raquo; = 오른쪽 이중 꺾쇠( » ) 문자 -->
+            <a th:href="@{/books}" class="btn btn-primary">도서목록 &raquo;</a>
+          </p>
         </div>
       </div>
 

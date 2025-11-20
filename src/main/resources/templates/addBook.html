@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <form th:action="@{/books/add}" method="post" th:object="${book}">
+      <form th:action="@{/books/add}" method="post" th:object="${book}" enctype="multipart/form-data">
         <legend>[[${addTitle}]]</legend>
 
         <div class="mb-3 row">
@@ -183,6 +183,17 @@
             >
           </div>
         </div>
+
+          <div class="mb-3 row">
+              <label class="col-sm-2 control-label">도서이미지</label>
+              <div class="col-sm-7">
+                  <input
+                          type="file"
+                          th:field="*{bookimage}"
+                          class="form-control"
+                  />
+              </div>
+          </div>
 
         <div class="mb-3 row">
           <div class="col-sm-3">
