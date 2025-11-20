@@ -2,10 +2,13 @@ package org.example.bookmarket.controller;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.example.bookmarket.service.BookService;
+import org.example.bookmarket.validator.BookValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.context.MessageSource;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Locale;
 import org.example.bookmarket.domain.Book;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -57,6 +62,10 @@ public class BookController {
   String fileDir;
 
   @Autowired
+  private BookValidator bookValidator;
+//  private UnitsInStockValidator unitsInStockValidator;
+
+  @Autowired
   private MessageSource messageSource;
 
   @GetMapping("/add")
@@ -66,7 +75,10 @@ public class BookController {
   }
 
   @PostMapping("/add")
-  public String submitAddBookForm(@ModelAttribute Book book){
+  public String submitAddBookForm(@Validated @ModelAttribute Book book, BindingResult bindingResult){
+    if(bindingResult.hasErrors()){
+      return "addBook";
+    }
     MultipartFile bookImage = book.getBookimage();
     String saveName = bookImage.getOriginalFilename();
     File saveFile = new File(fileDir,saveName);
