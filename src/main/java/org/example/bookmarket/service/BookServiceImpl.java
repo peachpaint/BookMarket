@@ -1,10 +1,11 @@
-package com.springboot.service;
+package org.example.bookmarket.service;
 
-import com.springboot.domain.Book;
-import com.springboot.repository.BookRepository;
+import org.example.bookmarket.domain.Book;
+import org.example.bookmarket.repository.BookJpaRepository;
+import org.example.bookmarket.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.stream.Collectors;
 
 import java.util.List;
 
@@ -16,7 +17,25 @@ public class BookServiceImpl implements BookService {
 // : @Autowired는 스프링 컨테이너가 의존성을 주입하는 방식 자체로 필드, 생성자, 수정자(setter) 등 다양한 위치에서 사용될 수 있으며
 //   setter는 수정자(Setter) 주입이라는 구체적인 의존성 주입 방법 중 하나로 @Autowired를 통해 특정 필드에 값을 할당하기 위해 사용되는 메서드
   private BookRepository bookRepository;
+  @Autowired
+  private BookJpaRepository bookJpaRepository;
+
   public List<Book> getAllBookList(){
-    return bookRepository.getAllBookList();
+    return bookJpaRepository.findAll();
+  }
+
+  public Book getBookById(String bookId){
+    return bookJpaRepository.findById(bookId)
+        .orElseThrow(() -> new IllegalArgumentException("도서ID가 "+bookId+"인 도서를 찾을 수 없습니다"));
+  }
+
+  @Override
+  public List<Book> getBookListByCategory(String category){
+    return bookJpaRepository.findByCategoryIgnoreCase(category);
+  }
+
+  @Override
+  public void setNewBook(Book book){
+    bookJpaRepository.save(book);
   }
 }
