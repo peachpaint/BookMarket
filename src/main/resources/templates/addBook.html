@@ -34,16 +34,18 @@
       </header>
       <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold" th:text="#{addBook.form.title.label}">
-          </h1>
+          <h1
+            class="display-5 fw-bold"
+            th:text="#{addBook.form.title.label}"
+          ></h1>
           <p class="col-md-8 fs-4">BookMarket</p>
         </div>
       </div>
 
       <div class="row align-items-md-stretch">
-        <div class="text-end" style="padding-right:30px">
-            <a href="?lang=ko">Korea</a> |
-            <a href="?lang=en">English</a>
+        <div class="text-end" style="padding-right: 30px">
+          <a href="?lang=ko">Korea</a> |
+          <a href="?lang=en">English</a>
         </div>
 
         <form
@@ -55,7 +57,10 @@
           <legend th:text="#{addBook.form.subtitle.label}"></legend>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.bookId.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.bookId.label}"
+            >
             </label>
             <div class="col-sm-3">
               <input
@@ -65,10 +70,16 @@
                 class="form-control"
               />
             </div>
+            <div class="col-sm-6">
+              <p class="text-danger" th:errors="*{bookId}"></p>
+            </div>
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.name.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.name.label}"
+            >
             </label>
             <div class="col-sm-3">
               <input
@@ -78,10 +89,16 @@
                 class="form-control"
               />
             </div>
+            <div class="col-sm-6">
+              <p class="text-danger" th:errors="*{name}"></p>
+            </div>
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.unitPrice.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.unitPrice.label}"
+            >
             </label>
             <div class="col-sm-3">
               <input
@@ -91,10 +108,16 @@
                 class="form-control"
               />
             </div>
+            <div class="col-sm-6">
+              <p class="text-danger" th:errors="*{unitPrice}"></p>
+            </div>
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.auther.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.auther.label}"
+            >
             </label>
             <div class="col-sm-3">
               <input
@@ -107,7 +130,10 @@
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.description.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.description.label}"
+            >
             </label>
             <div class="col-sm-5">
               <textarea
@@ -121,7 +147,10 @@
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.publisher.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.publisher.label}"
+            >
             </label>
             <div class="col-sm-3">
               <input
@@ -134,7 +163,10 @@
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.category.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.category.label}"
+            >
             </label>
             <div class="col-sm-3">
               <input
@@ -147,7 +179,10 @@
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.unitsInStock.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.unitsInStock.label}"
+            >
             </label>
             <div class="col-sm-3">
               <input
@@ -157,10 +192,16 @@
                 class="form-control"
               />
             </div>
+              <div class="col-6">
+                  <p class="text-danger" th:errors="*{unitsInStock}"></p>
+              </div>
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.releaseDate.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.releaseDate.label}"
+            >
             </label>
             <div class="col-sm-3">
               <input
@@ -173,7 +214,10 @@
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.condition.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.condition.label}"
+            >
             </label>
             <div class="col-sm-3">
               <label
@@ -207,7 +251,10 @@
           </div>
 
           <div class="mb-3 row">
-            <label class="col-sm-2 control-label" th:text="#{addBook.form.bookImage.label}">
+            <label
+              class="col-sm-2 control-label"
+              th:text="#{addBook.form.bookImage.label}"
+            >
             </label>
             <div class="col-sm-7">
               <input type="file" th:field="*{bookimage}" class="form-control" />
@@ -225,7 +272,7 @@
           </div>
         </form>
       </div>
-      
+
       <footer class="pt-3 mt-4 text-body-secondary border-top">
         <span class="text-body-secondary">&copy; BookMarket</span>
       </footer>
