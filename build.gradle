@@ -19,6 +19,8 @@ repositories {
 }
 
 dependencies {
+    runtimeOnly 'com.mysql:mysql-connector-j:8.1.0'
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
@@ -28,7 +30,6 @@ dependencies {
 
     runtimeOnly 'com.mysql:mysql-connector-j'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    runtimeOnly 'mysql:mysql-connector-java'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
