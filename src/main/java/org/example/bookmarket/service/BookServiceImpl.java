@@ -2,10 +2,8 @@ package org.example.bookmarket.service;
 
 import org.example.bookmarket.domain.Book;
 import org.example.bookmarket.repository.BookJpaRepository;
-import org.example.bookmarket.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.stream.Collectors;
 
 import java.util.List;
 
