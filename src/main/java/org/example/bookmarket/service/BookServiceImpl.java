@@ -1,9 +1,11 @@
 package org.example.bookmarket.service;
 
+import org.example.bookmarket.BookIdException;
 import org.example.bookmarket.domain.Book;
 import org.example.bookmarket.repository.BookJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class BookServiceImpl implements BookService {
 
   public Book getBookById(String bookId){
     return bookJpaRepository.findById(bookId)
-        .orElseThrow(() -> new IllegalArgumentException("도서ID가 "+bookId+"인 도서를 찾을 수 없습니다"));
+        .orElseThrow(() -> new BookIdException("도서ID가 "+bookId+"인 도서를 찾을 수 없습니다"));
   }
 
   @Override

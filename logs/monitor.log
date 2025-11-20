@@ -1,0 +1,230 @@
+2025-11-20 17:37:01.949 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 17:37:01.950 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 17:37:01
+2025-11-20 17:37:02.124 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 17:37:02
+2025-11-20 17:37:02.443 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 493ms
+2025-11-20 17:37:02.443 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 17:37:02.460 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 17:37:02.460 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 17:37:02
+2025-11-20 17:37:02.465 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 5ms
+2025-11-20 17:37:02.466 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 17:37:02.473 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/error
+2025-11-20 17:37:02.473 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 17:37:02
+2025-11-20 17:37:02.533 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 17:37:02
+2025-11-20 17:37:02.533 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 60ms
+2025-11-20 17:37:02.533 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 17:37:05.190 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/login
+2025-11-20 17:37:05.191 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 17:37:05
+2025-11-20 17:37:05.191 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 17:37:05
+2025-11-20 17:37:05.196 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 6ms
+2025-11-20 17:37:05.197 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:24:52.230 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/login
+2025-11-20 18:24:52.231 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:24:52
+2025-11-20 18:24:52.247 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:24:52
+2025-11-20 18:24:52.538 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 308ms
+2025-11-20 18:24:52.539 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:25:15.439 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add?continue
+2025-11-20 18:25:15.440 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:25:15
+2025-11-20 18:25:15.450 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:25:15
+2025-11-20 18:25:15.481 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 41ms
+2025-11-20 18:25:15.481 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:26:34.387 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add
+2025-11-20 18:26:34.387 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:26:34
+2025-11-20 18:26:34.572 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:26:34
+2025-11-20 18:26:34.593 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 206ms
+2025-11-20 18:26:34.593 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:26:49.524 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/home
+2025-11-20 18:26:49.526 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:26:49
+2025-11-20 18:26:49.527 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:26:49
+2025-11-20 18:26:49.532 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 7ms
+2025-11-20 18:26:49.533 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:26:50.549 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 18:26:50.550 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:26:50
+2025-11-20 18:26:50.671 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:26:50
+2025-11-20 18:26:50.716 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 166ms
+2025-11-20 18:26:50.716 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:26:50.741 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:26:50.741 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:26:50
+2025-11-20 18:26:50.748 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 8ms
+2025-11-20 18:26:50.749 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:26:50.758 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/error
+2025-11-20 18:26:50.758 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:26:50
+2025-11-20 18:26:50.839 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:26:50
+2025-11-20 18:26:50.839 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 82ms
+2025-11-20 18:26:50.840 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:26:55.683 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/ISBN1234
+2025-11-20 18:26:55.684 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:26:55
+2025-11-20 18:26:55.690 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:26:55
+2025-11-20 18:26:55.700 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 16ms
+2025-11-20 18:26:55.700 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:26:55.720 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:26:55.721 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:26:55
+2025-11-20 18:26:55.723 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 2ms
+2025-11-20 18:26:55.724 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:26:55.727 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/error
+2025-11-20 18:26:55.727 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:26:55
+2025-11-20 18:26:55.733 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:26:55
+2025-11-20 18:26:55.734 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 7ms
+2025-11-20 18:26:55.735 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:30:02.300 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 18:30:02.301 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:30:02
+2025-11-20 18:30:02.510 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:30:02
+2025-11-20 18:30:02.870 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 569ms
+2025-11-20 18:30:02.870 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:30:02.899 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:30:02.899 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:30:02
+2025-11-20 18:30:02.909 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:30:02
+2025-11-20 18:30:02.909 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 10ms
+2025-11-20 18:30:02.910 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:30:04.150 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/login
+2025-11-20 18:30:04.150 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:30:04
+2025-11-20 18:30:04.151 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:30:04
+2025-11-20 18:30:04.158 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 7ms
+2025-11-20 18:30:04.158 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:30:15.676 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add?continue
+2025-11-20 18:30:15.676 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:30:15
+2025-11-20 18:30:15.684 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:30:15
+2025-11-20 18:30:15.709 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 32ms
+2025-11-20 18:30:15.709 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:31:17.951 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add
+2025-11-20 18:31:17.952 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:31:17
+2025-11-20 18:31:18.061 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:31:18
+2025-11-20 18:31:18.073 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 121ms
+2025-11-20 18:31:18.074 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:31:55.774 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add
+2025-11-20 18:31:55.776 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:31:55
+2025-11-20 18:31:55.782 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:31:55
+2025-11-20 18:31:55.790 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 16ms
+2025-11-20 18:31:55.790 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:36:01.186 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 18:36:01.187 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:36:01
+2025-11-20 18:36:01.388 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:36:01
+2025-11-20 18:36:01.735 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 548ms
+2025-11-20 18:36:01.736 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:36:01.768 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:36:01.768 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:36:01
+2025-11-20 18:36:01.777 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:36:01
+2025-11-20 18:36:01.777 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 9ms
+2025-11-20 18:36:01.777 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:36:05.331 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/login
+2025-11-20 18:36:05.333 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:36:05
+2025-11-20 18:36:05.335 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:36:05
+2025-11-20 18:36:05.341 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 9ms
+2025-11-20 18:36:05.341 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:36:21.549 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add?continue
+2025-11-20 18:36:21.549 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:36:21
+2025-11-20 18:36:21.555 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:36:21
+2025-11-20 18:36:21.579 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 30ms
+2025-11-20 18:36:21.580 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:37:16.774 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add
+2025-11-20 18:37:16.774 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:37:16
+2025-11-20 18:37:16.890 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 124ms
+2025-11-20 18:37:16.890 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:37:27.647 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 18:37:27.647 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:37:27
+2025-11-20 18:37:27.664 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:37:27
+2025-11-20 18:37:27.664 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 19ms
+2025-11-20 18:37:27.664 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:37:27.700 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:37:27.701 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:37:27
+2025-11-20 18:37:27.708 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:37:27
+2025-11-20 18:37:27.709 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 9ms
+2025-11-20 18:37:27.709 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:40:12.936 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add?continue
+2025-11-20 18:40:12.936 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:40:12
+2025-11-20 18:40:12.936 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:40:12
+2025-11-20 18:40:12.953 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 13ms
+2025-11-20 18:40:12.953 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:40:15.354 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add
+2025-11-20 18:40:15.354 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:40:15
+2025-11-20 18:40:15.388 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 24ms
+2025-11-20 18:40:15.388 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:42:58.413 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 18:42:58.414 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:42:58
+2025-11-20 18:42:58.614 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:42:58
+2025-11-20 18:42:58.959 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 546ms
+2025-11-20 18:42:58.960 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:42:58.990 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:42:58.990 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:42:58
+2025-11-20 18:42:58.998 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:42:58
+2025-11-20 18:42:58.999 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 9ms
+2025-11-20 18:42:58.999 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:43:00.476 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/login
+2025-11-20 18:43:00.477 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:43:00
+2025-11-20 18:43:00.478 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:43:00
+2025-11-20 18:43:00.483 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 6ms
+2025-11-20 18:43:00.483 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:43:10.153 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add?continue
+2025-11-20 18:43:10.153 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:43:10
+2025-11-20 18:43:10.160 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:43:10
+2025-11-20 18:43:10.185 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 32ms
+2025-11-20 18:43:10.185 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:44:03.363 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add
+2025-11-20 18:44:03.364 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:44:03
+2025-11-20 18:44:03.538 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:44:03
+2025-11-20 18:44:03.541 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 177ms
+2025-11-20 18:44:03.543 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:44:03.549 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 18:44:03.549 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:44:03
+2025-11-20 18:44:03.556 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:44:03
+2025-11-20 18:44:03.570 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 20ms
+2025-11-20 18:44:03.570 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:44:03.598 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1235.jpg
+2025-11-20 18:44:03.598 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:44:03.599 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:44:03
+2025-11-20 18:44:03.599 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:44:03
+2025-11-20 18:44:03.603 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:44:03
+2025-11-20 18:44:03.603 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 5ms
+2025-11-20 18:44:03.603 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:44:03.614 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:44:03
+2025-11-20 18:44:03.615 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 17ms
+2025-11-20 18:44:03.616 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:47:41.308 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 18:47:41.310 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:47:41
+2025-11-20 18:47:41.513 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:47:41
+2025-11-20 18:47:41.869 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 562ms
+2025-11-20 18:47:41.870 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:47:41.903 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:47:41.903 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1235.jpg
+2025-11-20 18:47:41.903 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:47:41
+2025-11-20 18:47:41.903 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:47:41
+2025-11-20 18:47:41.914 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:47:41
+2025-11-20 18:47:41.914 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:47:41
+2025-11-20 18:47:41.914 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 11ms
+2025-11-20 18:47:41.915 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 11ms
+2025-11-20 18:47:41.915 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:47:41.915 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:47:43.699 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/login
+2025-11-20 18:47:43.699 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:47:43
+2025-11-20 18:47:43.700 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:47:43
+2025-11-20 18:47:43.705 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 6ms
+2025-11-20 18:47:43.705 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:47:52.056 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add?continue
+2025-11-20 18:47:52.056 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:47:52
+2025-11-20 18:47:52.063 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:47:52
+2025-11-20 18:47:52.088 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 31ms
+2025-11-20 18:47:52.088 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:48:58.982 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books/add
+2025-11-20 18:48:58.983 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:48:58
+2025-11-20 18:48:59.138 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.143 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 160ms
+2025-11-20 18:48:59.143 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:48:59.147 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/books
+2025-11-20 18:48:59.148 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.155 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.194 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 47ms
+2025-11-20 18:48:59.195 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:48:59.227 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1234.jpg
+2025-11-20 18:48:59.228 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.235 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1236.jpg
+2025-11-20 18:48:59.235 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.236 INFO  MonitoringInterceptor:21 - 접근한 URL 경로 : /BookMarket/uploads/ISBN1235.jpg
+2025-11-20 18:48:59.236 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 8ms
+2025-11-20 18:48:59.236 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.236 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:48:59.236 INFO  MonitoringInterceptor:22 - 요청 처리 시작 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.242 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.242 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 6ms
+2025-11-20 18:48:59.242 INFO  MonitoringInterceptor:34 - -----------------------------
+2025-11-20 18:48:59.255 INFO  MonitoringInterceptor:27 - 요청 처리 종료 시각 : 2025/11/20 18:48:59
+2025-11-20 18:48:59.256 INFO  MonitoringInterceptor:32 - 요청 처리 소요 시간 : 21ms
+2025-11-20 18:48:59.257 INFO  MonitoringInterceptor:34 - -----------------------------

@@ -10,6 +10,6 @@ public class WebConfig implements WebMvcConfigurer {
   @Override
   public void addResourceHandlers(ResourceHandlerRegistry registry) {
     registry.addResourceHandler("/uploads/**")
-        .addResourceLocations("file:C:/dev/BookMarket/uploads/");
+        .addResourceLocations("file:C:/BookMarket/uploads/");
   }//upload폴더에 저장된 파일 이미지 사용
 }

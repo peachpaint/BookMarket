@@ -40,7 +40,7 @@ public class DataLoader implements CommandLineRunner {
     initial.add(b1);
 
     Book b2 = new Book();
-    b2.setBookId("ISBN5678");
+    b2.setBookId("ISBN1235");
     b2.setName("파이썬의 정석");
     b2.setUnitPrice(new BigDecimal(29800));
     b2.setAuthor("조용주,임좌상");
@@ -52,7 +52,7 @@ public class DataLoader implements CommandLineRunner {
     initial.add(b2);
 
     Book b3 = new Book();
-    b3.setBookId("ISBN9999");
+    b3.setBookId("ISBN1236");
     b3.setName("안드로이드 프로그래밍");
     b3.setUnitPrice(new BigDecimal(25000));
     b3.setAuthor("송미영");
