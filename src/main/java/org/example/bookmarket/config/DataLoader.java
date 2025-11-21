@@ -37,6 +37,7 @@ public class DataLoader implements CommandLineRunner {
     b1.setCategory("IT");
     b1.setUnitsInStock(1000);
     b1.setReleaseDate("2024/02/20");
+    b1.setFileName("ISBN1234.jpg");
     initial.add(b1);
 
     Book b2 = new Book();
@@ -49,6 +50,7 @@ public class DataLoader implements CommandLineRunner {
     b2.setCategory("IT");
     b2.setUnitsInStock(1000);
     b2.setReleaseDate("2023/01/10");
+    b2.setFileName("ISBN1235.jpg");
     initial.add(b2);
 
     Book b3 = new Book();
@@ -61,6 +63,7 @@ public class DataLoader implements CommandLineRunner {
     b3.setCategory("IT");
     b3.setUnitsInStock(1000);
     b3.setReleaseDate("2023/06/30");
+    b3.setFileName("ISBN1236.jpg");
     initial.add(b3);
 
     bookJpaRepository.saveAll(initial);

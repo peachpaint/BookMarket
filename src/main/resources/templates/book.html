@@ -8,6 +8,8 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link href="/BookMarket/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/BookMarket/js/controllers.js"></script>
     <title>도서 상세페이지</title>
   </head>
   <body>
@@ -46,11 +48,14 @@
           alt="도서이미지"
           style="width: 100%; max-width: 300px; height: auto"
         />
-          <div class="text-center">
-              <a th:href="@{download(file=${book.fileName})}" style="text-decoration-line : none">
-                  이미지다운로드
-              </a>
-          </div>
+        <div class="text-center">
+          <a
+            th:href="@{download(file=${book.fileName})}"
+            style="text-decoration-line: none"
+          >
+            이미지다운로드
+          </a>
+        </div>
       </div>
       <div class="row align-items-md-stretch">
         <div class="col-md-12">
@@ -81,13 +86,22 @@
             <b>재고수 : </b>
             <span th:text="${book.unitsInStock}"></span>
           </p>
-            <h4 th:text="${#numbers.formatDecimal(book.unitPrice, 0, 'NONE', 0, 'NONE')} + '원'"></h4>
-          <br/>
-          <p>
-            <a href="#" class="btn btn-primary">도서주문 &raquo;</a>
-            <!-- &raquo; = 오른쪽 이중 꺾쇠( » ) 문자 -->
-            <a th:href="@{/books}" class="btn btn-primary">도서목록 &raquo;</a>
-          </p>
+          <h4
+            th:text="${#numbers.formatDecimal(book.unitPrice, 0, 'NONE', 0, 'NONE')} + '원'"
+          ></h4>
+          <br />
+          <form name="addForm" id="addForm" method="post">
+            <input type="hidden" name="_method" value="put" />
+            <p>
+              <a href="#" th:data-book-id="${book.bookId}" onclick="addToCart(this.getAttribute('data-book-id')); return false;" class="btn btn-primary">도서주문 &raquo;</a>
+              <!--data 속성 사용-->
+              <!-- &raquo; = 오른쪽 이중 꺾쇠( » ) 문자 -->
+              <a th:href="@{/cart}" class="btn btn-warning">장바구니 &raquo;</a>
+              <a th:href="@{/books}" class="btn btn-secondary"
+                >도서목록 &raquo;</a
+              >
+            </p>
+          </form>
         </div>
       </div>
 
