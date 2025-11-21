@@ -2,7 +2,6 @@ package org.example.bookmarket.validator;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import org.example.bookmarket.domain.Book;
 import org.example.bookmarket.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,10 +25,10 @@ public class BookIdValidator implements ConstraintValidator<BookId, String> {
       return true;
     }
     try {
-      Book book = bookService.getBookById(value);
-      // 신규 등록 시에는 ID가 존재하지 않아야 함 (중복 체크)
-      return book == null;
-    } catch (IllegalArgumentException e) {
+      bookService.getBookById(value);
+      // 책이 존재하면 중복이므로 false 반환
+      return false;
+    } catch (org.example.bookmarket.BookIdException e) {
       // ID가 존재하지 않으면(예외 발생) 신규 등록 가능
       return true;
     } catch (Exception e) {

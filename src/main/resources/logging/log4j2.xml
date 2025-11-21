@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="30">
+    <properties>
+        <property name="LOG_FORMAT">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %msg%n
+            <!--
+            1. %d{yyyy-MM-dd HH:mm:ss.SSS} : 로그가 출력된 시간 (날짜 + 시간 + 밀리초)  
+            2. %-5p : 로그 레벨 (예: INFO, DEBUG, ERROR 등), -5는 고정된 너비를 의미하여 로그 레벨이 5글자보다 짧을 경우 오른쪽에 공백을 추가
+            3. %c{1} : 로그를 출력한 클래스의 이름 (패키지명을 제외한 클래스명만 표시)
+            4. %L : 로그가 출력된 소스 코드의 라인 번호
+            5. %msg : 실제 로그 메시지 내용
+            6. %n : 새로운 줄 문자 (로그 메시지 끝에 줄바꿈 추가)
+            -->
+        </property>
+        <property name="BASE_DIR">./logs</property>
+    </properties>
+    <Appenders>
+        <Console name="Consol-Appender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_FORMAT}"/>
+        </Console>
+        <RollingFile name="File-Appender" fileName="${BASE_DIR}/monitor.log"
+        filePattern="${BASE_DIR}%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="${LOG_FORMAT}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${BASE_DIR}">
+                    <IfAccumulatedFileCount exceeds="4"/>
+                    <IfFileName glob="*.log.gz"/>
+                    <IfLastModified age="3d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+        <RollingFile name="Audit-Appender" fileName="${BASE_DIR}/audit.log"
+        filePattern="${BASE_DIR}/%d{yyyy-MM-dd}.log.zip">
+            <PatternLayout pattern="${LOG_FORMAT}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${BASE_DIR}">
+                    <IfAccumulatedFileCount exceeds="4"/>
+                    <IfFileName glob="*.log"/>
+                    <IfLastModified age="3d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Consol-Appender"/>
+        </Root>
+        <Logger name="org.example.bookmarket.interceptor.MonitoringInterceptor" 
+        level="INFO" additivity="true">
+            <AppenderRef ref="File-Appender"/>
+        </Logger>
+        <Logger name="org.example.bookmarket.audit.AuditLogger" level="INFO" additivity="true">
+            <AppenderRef ref="Audit-Appender"/>
+        </Logger>
+    </Loggers>
+</Configuration>
