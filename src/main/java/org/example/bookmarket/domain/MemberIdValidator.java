@@ -3,8 +3,13 @@ package org.example.bookmarket.domain;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import org.example.bookmarket.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class MemberIdValidator implements ConstraintValidator<MemberId, String> {
+  @Autowired
+  private MemberService memberService;
+
   //ConstraintValidator 인터페이스는 매개변수 두개를 정의
   @Override
   public void initialize(MemberId constraintAnnotation) {
@@ -12,13 +17,23 @@ public class MemberIdValidator implements ConstraintValidator<MemberId, String> 
     ConstraintValidator.super.initialize(constraintAnnotation);
   }
 
-
   @Override
   public boolean isValid(String value, ConstraintValidatorContext context) {
   //isValid() : 유효성 검사 로직 수행, value-> 유효성 검사를 위한 도메인 클래스의 멤버 변수 값
-    if(value.equals("admin")){
+    if (value == null || value.isEmpty()) {
       return false;
     }
+
+    // "admin" 아이디 사용 금지
+    if (value.equalsIgnoreCase("admin")) {
+      return false;
+    }
+
+    // DB에서 중복 확인
+    if (memberService != null && memberService.existsByMemberId(value)) {
+      return false;
+    }
+
     return true;
   }
 }

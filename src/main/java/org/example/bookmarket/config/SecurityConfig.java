@@ -1,5 +1,7 @@
 package org.example.bookmarket.config;
 
+import org.example.bookmarket.service.CustomUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,20 +18,24 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+  @Autowired
+  private CustomUserDetailsService customUserDetailsService;
+
   @Bean
   protected PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }//PasswordEncoder : 사용자 비밀번호의 단방향 암호화를 지원하는 인터페이스
 
-  @Bean
-  protected UserDetailsService useR() {
-    UserDetails admin = User.builder()
-        .username("Admin")//이름 : Admin
-        .password(passwordEncoder().encode("Admin1234"))//비밀번호 : Admin1234
-        .roles("ADMIN")//역할 : ADMIN
-        .build();
-    return new InMemoryUserDetailsManager(admin);
-  }
+//  @Bean
+//  protected UserDetailsService useR() {
+//    UserDetails admin = User.builder()
+//        .username("Admin")//이름 : Admin
+//        .password(passwordEncoder().encode("Admin1234"))//비밀번호 : Admin1234
+//        .roles("ADMIN")//역할 : ADMIN
+//        .build();
+//    return new InMemoryUserDetailsManager(admin);
+//  }//마스터 로그인 용
+
   @Bean
   protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
@@ -37,22 +43,24 @@ public class SecurityConfig {
         .authorizeHttpRequests(
             authorizeRequests -> authorizeRequests
                 .requestMatchers("/books/add").hasRole("ADMIN")
-                .anyRequest().permitAll()
+                .requestMatchers("/signup", "/member", "/css/**", "/js/**", "/uploads/**").permitAll()  // 회원가입 허용
+                .anyRequest().authenticated()  // 나머지는 인증 필요
         )
         .formLogin(
-            formLogin->formLogin
+            formLogin -> formLogin
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/books/add")
+                .defaultSuccessUrl("/books")
                 .failureUrl("/loginfailed")
                 .usernameParameter("username")
                 .passwordParameter("password")
         )
         .logout(
-            logout->logout
+            logout -> logout
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login")
-        );
+        )
+        .userDetailsService(customUserDetailsService);  // DB 사용자 인증
     return http.build();
   }//ADMIN권한이 있는 사용자만 /books/add 경로에 접근할 수 있도록 하는 인터페이스
 }
