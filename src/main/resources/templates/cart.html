@@ -71,20 +71,42 @@
               <th>비고</th>
             </tr>
           </thead>
-          <tbody th:if="${cart != null and cart.cartItems != null and !cart.cartItems.isEmpty()}">
+          <tbody
+            th:if="${cart != null and cart.cartItems != null and !cart.cartItems.isEmpty()}"
+          >
             <tr th:each="item : ${cart.cartItems}">
-              <td th:text="${item.value.book.bookId} + ' - ' + ${item.value.book.name}"></td>
+              <td
+                th:text="${item.value.book.bookId} + ' - ' + ${item.value.book.name}"
+              ></td>
               <td th:text="${item.value.book.unitPrice}"></td>
-              <td th:text="${item.value.quantity}"></td>
-              <td th:text="${item.value.totalPrice}"></td>
+              <!-- 단가 (가격) -->
               <td>
-                  <a href="#" th:data-book-id="${item.value.book.bookId}" onclick="removeFromCart(this.getAttribute('data-book-id')); return false;" class="badge text-bg-danger">
-                      삭제
-                  </a>
+                <span
+                  th:text="${#numbers.formatDecimal(item.value.book.unitPrice, 0, 'NONE', 0, 'NONE')} + '원'"
+                ></span>
+              </td>
+
+              <!-- 소계 -->
+              <td>
+                <span
+                  th:text="${#numbers.formatDecimal(item.value.totalPrice, 0, 'NONE', 0, 'NONE')} + '원'"
+                ></span>
+              </td>
+              <td>
+                <a
+                  href="#"
+                  th:data-book-id="${item.value.book.bookId}"
+                  onclick="removeFromCart(this.getAttribute('data-book-id')); return false;"
+                  class="badge text-bg-danger"
+                >
+                  삭제
+                </a>
               </td>
             </tr>
           </tbody>
-          <tbody th:if="${cart == null or cart.cartItems == null or cart.cartItems.isEmpty()}">
+          <tbody
+            th:if="${cart == null or cart.cartItems == null or cart.cartItems.isEmpty()}"
+          >
             <tr>
               <td colspan="5" class="text-center">장바구니가 비어있습니다.</td>
             </tr>
@@ -93,8 +115,12 @@
       </form>
       <div class="text-end" style="padding-right: 30px">
         <b>
-          총액
-          <span th:if="${cart !=null}"> [[${cart.grandTotal}]] </span>
+          총액:
+          <span
+            th:if="${cart != null}"
+            th:text="${#numbers.formatDecimal(cart.grandTotal, 0, 'NONE', 0, 'NONE')} + '원'"
+          >
+          </span>
         </b>
       </div>
       <br />

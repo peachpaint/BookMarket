@@ -3,7 +3,6 @@ package org.example.bookmarket.config;
 import org.example.bookmarket.domain.Book;
 import org.example.bookmarket.repository.BookJpaRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

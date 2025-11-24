@@ -3,6 +3,8 @@ package org.example.bookmarket.interceptor;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 import org.springframework.util.StopWatch;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,7 +16,9 @@ import java.util.Calendar;
 @Slf4j
 public class MonitoringInterceptor implements HandlerInterceptor {
   ThreadLocal<StopWatch> stopWatchLocal = new ThreadLocal<StopWatch>();
-  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+  @Override
+  public boolean preHandle(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler) throws Exception {
     StopWatch stopWatch = new StopWatch(handler.toString());
     stopWatch.start(handler.toString());
     stopWatchLocal.set(stopWatch);
@@ -23,10 +27,13 @@ public class MonitoringInterceptor implements HandlerInterceptor {
     return true;
   }
 
-  public void postHandle(HttpServletRequest arg0, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+  @Override
+  public void postHandle(@NonNull HttpServletRequest arg0, @NonNull HttpServletResponse response, @NonNull Object handler, @Nullable ModelAndView modelAndView) throws Exception {
     log.info("요청 처리 종료 시각 : " + getCurrentTime());
   }
-  public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+  
+  @Override
+  public void afterCompletion(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler, @Nullable Exception ex) throws Exception {
     StopWatch stopWatch = stopWatchLocal.get();
     stopWatch.stop();
     log.info("요청 처리 소요 시간 : " + stopWatch.getTotalTimeMillis()+ "ms");

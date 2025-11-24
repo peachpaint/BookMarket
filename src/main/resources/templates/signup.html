@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
-    <title>로그인</title>
+    <title>회원가입</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -37,53 +37,51 @@
 
       <div class="p-5 mb-4 bg-body-tertiary rounded-3">
         <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">로그인</h1>
+          <h1 class="display-5 fw-bold">회원가입</h1>
           <p class="col-md-8 fs-4">BookMarket</p>
         </div>
       </div>
 
-      <div class="row align-items-md-stretch text-center">
-        <div class="container col-md-5">
-          <h3 class="form-signin-heading">Please sign in</h3>
-            <p>
-                <a th:href="@{/signup}" class="btn btn-Secondary">회원가입 &raquo;</a>
-            </p>
+      <form action="member" method="post">
+        <p>
+          아이디 <input type="text" id="memberId" name="memberId" required />
+        </p>
+        <p>
+          비밀번호 <input type="password" id="passwd" name="passwd" required />
+        </p>
+        <p>이름 <input type="text" id="name" name="name" required /></p>
+        <p>
+          전화 번호
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
+            placeholder="010-0000-0000"
+            required
+          />
+        </p>
+        <p>
+          거주지
+          <select name="city" required>
+            <option value="서울시">서울시</option>
+            <option value="경기도">경기도</option>
+            <option value="인천시">인천시</option>
+            <option value="충청도">충청도</option>
+            <option value="전라도">전라도</option>
+            <option value="경상도">경상도</option>
+          </select>
+        </p>
+        <p>
+          성별 : <input type="radio" name="sex" value="남성" checked />남성
+          <input type="radio" name="sex" value="여상" />여성
+        </p>
+        <div class="row align-items-md-stretch text-center">
+          <button class="btn btn-lg btn-success btn-block" type="submit">
+            회원가입
+          </button>
         </div>
-        <div class="alert alert-danger" th:if="${error}">
-          UserName과 Password가 올바르지 않습니다<br />
-        </div>
-        <!--인증 실패시 모델 속성 erre에 저장된 값이 있다면 오류를 출력-->
-
-        <form class="form-signin" action="/BookMarket/login" method="post">
-          <!--로그인 인증을 위한 요청 경로를 설정-->
-          <div class="mb-3 row">
-            <input
-              type="text"
-              name="username"
-              class="form-control"
-              placeholder="UserName"
-              required
-              autofocus
-            />
-            <!--사용자 이름(계정)을 설정-->
-          </div>
-          <div class="mb-3 row">
-            <input
-              type="password"
-              name="password"
-              class="form-control"
-              placeholder="Password"
-              required
-            />
-            <!--태그로 사용자 비밀번호를 설정-->
-          </div>
-          <div>
-            <button class="btn btn-lg btn-success btn-block" type="submit">
-              로그인
-            </button>
-          </div>
-        </form>
-      </div>
+      </form>
     </div>
   </body>
 </html>
