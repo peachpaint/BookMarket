@@ -24,6 +24,8 @@ public class BookServiceImpl implements BookService {
     return bookJpaRepository.findAll();
   }
 
+  @Override
+  @SuppressWarnings("null")//null 경고 스킵
   public Book getBookById(String bookId){
     return bookJpaRepository.findById(bookId)
         .orElseThrow(() -> new BookIdException("도서ID가 "+bookId+"인 도서를 찾을 수 없습니다"));
@@ -35,6 +37,7 @@ public class BookServiceImpl implements BookService {
   }
 
   @Override
+  @SuppressWarnings("null")
   public void setNewBook(Book book){
     bookJpaRepository.save(book);
   }

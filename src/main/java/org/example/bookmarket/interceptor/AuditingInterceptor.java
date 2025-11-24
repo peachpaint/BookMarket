@@ -3,6 +3,8 @@ package org.example.bookmarket.interceptor;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.text.DateFormat;
@@ -13,7 +15,9 @@ import java.util.Calendar;
 public class AuditingInterceptor implements HandlerInterceptor {
   private String user;
   private String bookId;
-  public boolean preHandle(HttpServletRequest request, HttpServletResponse arg1, Object handler) throws Exception {
+  
+  @Override
+  public boolean preHandle(@NonNull HttpServletRequest request, @NonNull HttpServletResponse arg1, @NonNull Object handler) throws Exception {
     if (request.getRequestURI().endsWith("books/add") && request.getMethod()
         .equals("POST")) {
       user = request.getRemoteUser();
@@ -21,7 +25,9 @@ public class AuditingInterceptor implements HandlerInterceptor {
     }
     return true;
   }
-  public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception arg3) throws Exception {
+  
+  @Override
+  public void afterCompletion(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler, @Nullable Exception arg3) throws Exception {
     if(request.getRequestURI().endsWith("books/add")){
       log.warn(String.format("신규들록 도서 ID : %s, 접근자 : %s, 접근시각 : %s",bookId,user,getCurrentTime()));
     }

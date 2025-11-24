@@ -49,7 +49,7 @@
             </p>
             <p>
                 <b>비밀번호 : </b>
-                <span th:text="${member.passwd}"></span>  <!-- 실제로는 보안상 표시하지 않는 것이 좋음 -->
+                <span th:text="${#strings.substring(member.passwd, 0, 4)} + '****'"></span>
             </p>
             <p>
                 <b>이름 : </b>
@@ -73,6 +73,9 @@
           <p>
             <a th:href="@{/books}" class="btn btn-secondary"
               >도서목록 &raquo;</a
+            >
+            <a th:href="@{/login}" class="btn btn-primary"
+              >로그인폼 &raquo;</a
             >
           </p>
         </div>

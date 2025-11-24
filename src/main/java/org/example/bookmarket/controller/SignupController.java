@@ -2,6 +2,7 @@ package org.example.bookmarket.controller;
 
 import jakarta.validation.Valid;
 import org.example.bookmarket.domain.Member;
+import org.example.bookmarket.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

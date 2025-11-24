@@ -36,4 +36,7 @@ public class Member {
 
   @Column(length = 20)
   private String role = "USER";  // 기본 역할
+
+  @OneToOne(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+  private Address address;  // 주소 정보 (양방향 관계)
 }

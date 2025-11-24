@@ -5,9 +5,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.example.bookmarket.domain.Member;
+import org.example.bookmarket.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class LoginController {
+  @Autowired  // 추가
+  private MemberService memberService;
+
   @GetMapping("/login")
   public String login(){
     return "login";

@@ -10,4 +10,8 @@ public class CategoryException extends RuntimeException{
     super();
     this.errorMessage = "요청한 도서 분야를 찾을 수 없습니다";
   }
+  
+  public String getErrorMessage() {
+    return errorMessage;
+  }
 }

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
   <head>
     <meta charset="UTF-8" />
     <title>도서목록</title>
@@ -14,10 +18,11 @@
   <body>
     <div class="container py-4">
       <header class="pb-3 mb-4 border-bottom">
-        <div class="container d-flex flex-wrap justifiy-content-center">
+        <div class="d-flex align-items-center">
+          <!-- 로고 (왼쪽) -->
           <a
             th:href="@{/home}"
-            class="d-flex align-items-center text-body-emphasis text-decoration-none mb-3 mb-lg-0 me-lg-auto"
+            class="d-flex align-items-center text-body-emphasis text-decoration-none me-auto"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +38,30 @@
             </svg>
             <span class="fs-4">BookMarket</span>
           </a>
-          <a th:href="@{/books/category/{cat}(cat='IT')}" class="nav-link"
-            >IT전문서</a
-          >
-          &nbsp;|&nbsp;
-          <a th:href="@{/books/category/{cat}(cat='COOK')}" class="nav-link"
-            >요리전문서</a
-          >
+
+          <!-- 로그인/로그아웃 (오른쪽) -->
+          <div class="d-flex align-items-center gap-2">
+            <!-- 로그인된 상태 -->
+            <div sec:authorize="isAuthenticated()" class="d-flex align-items-center gap-2">
+              <a th:href="@{/member/info}" class="btn btn-sm btn-info">회원정보</a>
+              <form
+                action="/BookMarket/logout"
+                method="post"
+                style="display: inline"
+              >
+                <span class="me-2" sec:authentication="name"></span>
+                <input
+                  type="submit"
+                  class="btn btn-sm btn-danger"
+                  value="로그아웃"
+                />
+              </form>
+            </div>
+            <!-- 로그인 안된 상태 -->
+            <div sec:authorize="!isAuthenticated()">
+              <a th:href="@{/login}" class="btn btn-sm btn-primary">로그인</a>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -53,28 +75,59 @@
           <p class="col-md-8 fs-4">BookMarket</p>
         </div>
       </div>
-        <p>
-            <a th:href="@{/books/add}" class="btn btn-Secondary">도서등록 &raquo;</a>
-        </p>
-        <br>
-        <!-- 비어있을 때 메시지 -->
-        <div
-                th:if="${#lists.isEmpty(bookList)}"
-                class="alert alert-info"
-                role="alert"
-        >
-            <strong
-                    th:text="${category != null ? '카테고리: ' + category : '선택된 카테고리'}"
-            ></strong>
-            <span> — 서적을 추가할 예정입니다.</span>
+
+      <!-- 도서 목록 (비어있을 때) -->
+      <div
+        class="p-5 mb-4 bg-body-tertiary rounded-3"
+        th:if="${#lists.isEmpty(bookList)}"
+      >
+        <div class="container-fluid py-5">
+          <h1 class="display-5 fw-bold">도서목록</h1>
+          <p class="col-md-8 fs-4">BookMarket</p>
         </div>
+      </div>
+
+      <!-- 도서등록 버튼과 카테고리 (항상 표시) -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <!-- 도서등록 버튼 (왼쪽) -->
+        <div>
+          <a th:href="@{/books/add}" class="btn btn-Secondary"
+            >도서등록 &raquo;</a
+          >
+        </div>
+
+        <!-- 카테고리 (오른쪽) -->
+        <div class="d-flex align-items-center">
+          <a th:href="@{/books/category/{cat}(cat='IT')}" class="nav-link"
+            >IT전문서</a
+          >
+          <span class="mx-2">|</span>
+          <a th:href="@{/books/category/{cat}(cat='COOK')}" class="nav-link"
+            >요리전문서</a
+          >
+        </div>
+      </div>
+      <br />
+
+      <!-- 비어있을 때 메시지 -->
+      <div
+        th:if="${#lists.isEmpty(bookList)}"
+        class="alert alert-info"
+        role="alert"
+      >
+        <strong
+          th:text="${category != null ? '카테고리: ' + category : '선택된 카테고리'}"
+        ></strong>
+        <span> — 서적을 추가할 예정입니다.</span>
+      </div>
+
       <div class="row align-items-md-stretch text-center">
         <div class="col-md-4" th:each="book: ${bookList}">
           <img
             th:if="${book.fileName}"
             th:src="@{/uploads/{fileName}(fileName=${book.fileName})}"
             alt="도서이미지"
-            style="width: 90% ; object-fit: cover"
+            style="width: 90%; object-fit: cover"
           />
           <h3 th:text="${book.name}"></h3>
           <p th:text="${book.author}"></p>

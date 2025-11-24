@@ -66,7 +66,7 @@ public class BookController {
   @Value("${file.uploadDir}")
   String fileDir;
 
-  @Autowired
+//  @Autowired
   private BookValidator bookValidator;
 //  private UnitsInStockValidator unitsInStockValidator;
 

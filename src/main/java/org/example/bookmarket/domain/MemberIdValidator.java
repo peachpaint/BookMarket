@@ -24,12 +24,7 @@ public class MemberIdValidator implements ConstraintValidator<MemberId, String> 
       return false;
     }
 
-    // "admin" 아이디 사용 금지
-    if (value.equalsIgnoreCase("admin")) {
-      return false;
-    }
-
-    // DB에서 중복 확인
+    // DB에서 중복 확인만 수행
     if (memberService != null && memberService.existsByMemberId(value)) {
       return false;
     }

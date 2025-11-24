@@ -45,6 +45,9 @@
       <div class="row align-items-md-stretch text-center">
         <div class="container col-md-5">
           <h3 class="form-signin-heading">Please sign in</h3>
+            <p>
+                <a th:href="@{/signup}" class="btn btn-Secondary">회원가입 &raquo;</a>
+            </p>
         </div>
         <div class="alert alert-danger" th:if="${error}">
           UserName과 Password가 올바르지 않습니다<br />
@@ -52,7 +55,7 @@
         <!--인증 실패시 모델 속성 erre에 저장된 값이 있다면 오류를 출력-->
 
         <form class="form-signin" action="/BookMarket/login" method="post">
-        <!--로그인 인증을 위한 요청 경로를 설정-->
+          <!--로그인 인증을 위한 요청 경로를 설정-->
           <div class="mb-3 row">
             <input
               type="text"
