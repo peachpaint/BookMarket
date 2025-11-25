@@ -10,6 +10,23 @@
     />
     <script src="/BookMarket/js/controllers.js"></script>
     <title>장바구니</title>
+    <style>
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .quantity-btn {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        font-weight: bold;
+      }
+      .quantity-input {
+        width: 60px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <div class="container py-4">
@@ -53,7 +70,11 @@
           >
             삭제하기
           </a>
-          <a href="#" class="btn btn-success text-right" style="float: right">
+          <a
+            th:href="@{/orders/{cartId}(cartId=${cart.cartId})}"
+            class="btn btn-success text-right"
+            style="float: right"
+          >
             주문하기
           </a>
         </form>
@@ -75,23 +96,60 @@
             th:if="${cart != null and cart.cartItems != null and !cart.cartItems.isEmpty()}"
           >
             <tr th:each="item : ${cart.cartItems}">
+              <!-- 도서명 -->
               <td
                 th:text="${item.value.book.bookId} + ' - ' + ${item.value.book.name}"
               ></td>
-              <td th:text="${item.value.book.unitPrice}"></td>
-              <!-- 단가 (가격) -->
+
+              <!-- 단가 -->
               <td>
                 <span
                   th:text="${#numbers.formatDecimal(item.value.book.unitPrice, 0, 'NONE', 0, 'NONE')} + '원'"
                 ></span>
               </td>
 
-              <!-- 소계 -->
+              <!-- 수량 (증감 버튼 포함) -->
+              <td>
+                <div class="quantity-control">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary quantity-btn"
+                    th:data-book-id="${item.value.book.bookId}"
+                    th:data-current-qty="${item.value.quantity}"
+                    onclick="updateQuantity(this.getAttribute('data-book-id'), parseInt(this.getAttribute('data-current-qty')) - 1)"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    class="form-control form-control-sm quantity-input"
+                    th:id="'qty-' + ${item.value.book.bookId}"
+                    th:value="${item.value.quantity}"
+                    min="1"
+                    th:data-book-id="${item.value.book.bookId}"
+                    onchange="updateQuantity(this.getAttribute('data-book-id'), this.value)"
+                    readonly
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary quantity-btn"
+                    th:data-book-id="${item.value.book.bookId}"
+                    th:data-current-qty="${item.value.quantity}"
+                    onclick="updateQuantity(this.getAttribute('data-book-id'), parseInt(this.getAttribute('data-current-qty')) + 1)"
+                  >
+                    +
+                  </button>
+                </div>
+              </td>
+
+              <!-- 소계 (수량 × 단가) -->
               <td>
                 <span
                   th:text="${#numbers.formatDecimal(item.value.totalPrice, 0, 'NONE', 0, 'NONE')} + '원'"
                 ></span>
               </td>
+
+              <!-- 삭제 버튼 -->
               <td>
                 <a
                   href="#"

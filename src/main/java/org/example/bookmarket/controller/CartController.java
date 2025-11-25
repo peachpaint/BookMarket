@@ -78,4 +78,33 @@ public class CartController {
   public void deleteCartList(@PathVariable("cartId")String cartId){
     cartService.delete(cartId);
   }
+  
+  @PatchMapping("/{cartId}/book/{bookId}/quantity")
+  @ResponseStatus(value = HttpStatus.NO_CONTENT)
+  public void updateQuantity(
+      @PathVariable("cartId") String cartId,
+      @PathVariable("bookId") String bookId,
+      @RequestParam("quantity") int quantity,
+      HttpServletRequest request) {
+    
+    String sessionId = request.getSession().getId();
+    Cart cart = cartService.read(sessionId);
+    
+    if (cart == null) {
+      throw new IllegalArgumentException("장바구니를 찾을 수 없습니다.");
+    }
+    
+    // 수량이 0 이하면 1로 설정
+    if (quantity < 1) {
+      quantity = 1;
+    }
+    
+    // CartItem 찾아서 수량 업데이트
+    CartItem cartItem = cart.getCartItems().get(bookId);
+    if (cartItem != null) {
+      cartItem.setQuantity(quantity);
+      cart.updateGrandTotal();
+      cartService.update(sessionId, cart);
+    }
+  }
 }

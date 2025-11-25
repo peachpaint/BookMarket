@@ -62,5 +62,5 @@ public class SecurityConfig {
         )
         .userDetailsService(customUserDetailsService);  // DB 사용자 인증
     return http.build();
-  }//ADMIN권한이 있는 사용자만 /books/add 경로에 접근할 수 있도록 하는 인터페이스
+  }
 }

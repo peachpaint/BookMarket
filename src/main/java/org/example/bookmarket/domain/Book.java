@@ -53,5 +53,20 @@ public class Book {
     super();
   }
 
+  // == 비즈니스 로직 ==
+  
+  // 재고 증가
+  public void increaseStock(int quantity) {
+    this.unitsInStock += quantity;
+  }
+  
+  // 재고 감소
+  public void decreaseStock(int quantity) {
+    long restStock = this.unitsInStock - quantity;
+    if (restStock < 0) {
+      throw new IllegalStateException("재고가 부족합니다.");
+    }
+    this.unitsInStock = restStock;
+  }
 
 }

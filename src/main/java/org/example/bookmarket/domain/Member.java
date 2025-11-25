@@ -37,6 +37,12 @@ public class Member {
   @Column(length = 20)
   private String role = "USER";  // 기본 역할
 
+  // 주소 정보 (양방향 관계)
   @OneToOne(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-  private Address address;  // 주소 정보 (양방향 관계)
+  private Address address;
+
+  // Member.deliveries 컬렉션 제거:
+  // - 비즈니스 로직에서 사용되지 않음
+  // - LazyInitializationException 원인
+  // - Delivery는 Member를 참조하지만, Member는 Delivery 컬렉션 불필요
 }
